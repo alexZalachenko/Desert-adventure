@@ -1,0 +1,157 @@
+fileFormatVersion: 2
+guid: 558413e531d06cf43b63a9713760447e
+timeCreated: 1479609645
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Cielo
+    21300002: Dunas_01
+    21300004: Dunas_02
+    21300006: "Monta\xF1as_01"
+    21300008: "Monta\xF1as_02"
+    21300010: "Monta\xF1as_03"
+    21300012: Piramides
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 108
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Cielo
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1298
+        width: 1920
+        height: 749
+      alignment: 9
+      pivot: {x: 0.5, y: 0.27903873}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Dunas_01
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1008
+        width: 1920
+        height: 288
+      alignment: 9
+      pivot: {x: 0.5, y: 1.875}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Dunas_02
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 562
+        width: 1920
+        height: 197
+      alignment: 9
+      pivot: {x: 0.5, y: 1.9492385}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: "Monta\xF1as_01"
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 408
+        width: 1920
+        height: 151
+      alignment: 9
+      pivot: {x: 0.5, y: 2.284768}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: "Monta\xF1as_02"
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 762
+        width: 1920
+        height: 244
+      alignment: 9
+      pivot: {x: 0.5, y: 1.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: "Monta\xF1as_03"
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 268
+        width: 1920
+        height: 146
+      alignment: 9
+      pivot: {x: 0.5, y: 1.5890411}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Piramides
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 54
+        width: 1240
+        height: 211
+      alignment: 9
+      pivot: {x: 0.31129032, y: 1.6018957}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

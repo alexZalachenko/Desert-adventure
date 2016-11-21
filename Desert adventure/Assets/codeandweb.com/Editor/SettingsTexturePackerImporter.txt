@@ -1,0 +1,17 @@
+version: 2
+importPivots: 0
+tpsheetFileNames:
+- Assets/codeandweb.com/Example/SpriteSheet/sprites.tpsheet
+- Assets/Sprites/Environment/Background.tpsheet
+- Assets/Sprites/Environment/Environment.tpsheet
+- Assets/Sprites/Girl/Player.tpsheet
+textureFileNames:
+- Assets/codeandweb.com/Example/SpriteSheet/sprites.png
+- Assets/Sprites/Environment/Background.png
+- Assets/Sprites/Environment/Environment.png
+- Assets/Sprites/Girl/Player.png
+normalmapFileNames:
+- Assets/codeandweb.com/Example/SpriteSheet/sprites_n.png
+- 
+- 
+- 
