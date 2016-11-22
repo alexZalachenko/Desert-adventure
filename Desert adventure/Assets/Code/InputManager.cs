@@ -27,6 +27,9 @@ public class InputManager : MonoBehaviour
     [SerializeField]
     private float c_attackCooldown;
     private float c_timeToAttack;
+
+    float c_xForce;
+    float c_yForce;
     #endregion
 
     void Start()
@@ -34,23 +37,27 @@ public class InputManager : MonoBehaviour
         c_onGround = false;
         c_playerAnimator.SetBool("Jumping", !c_onGround);
     }
+
+    void Update()
+    {
+
+        c_xForce = Input.GetAxisRaw("Horizontal");
+        c_yForce = Input.GetAxisRaw("Vertical");
+        CheckAttackInput();
+    }
     
     void FixedUpdate()
     {
-        float t_xForce = Input.GetAxisRaw("Horizontal");
-        float t_yForce = Input.GetAxisRaw("Vertical");
+            CheckMovementInput();
 
-        CheckMovementInput(t_xForce, t_yForce);
-        CheckAttackInput();
+            //set propper animation
+            c_playerAnimator.SetInteger("SpeedX", Mathf.CeilToInt(c_playerRigidbody.velocity.x));
 
-        //set propper animation
-        c_playerAnimator.SetInteger("SpeedX", Mathf.CeilToInt(c_playerRigidbody.velocity.x));
-
-        //set script's facing direction
-        if (t_xForce < 0 && !c_playerSpriteRenderer.flipX)
-            c_playerSpriteRenderer.flipX = true;
-        else if (t_xForce > 0 && c_playerSpriteRenderer.flipX)
-            c_playerSpriteRenderer.flipX = false;
+            //set script's facing direction
+            if (c_xForce < 0 && !c_playerSpriteRenderer.flipX)
+                c_playerSpriteRenderer.flipX = true;
+            else if (c_xForce > 0 && c_playerSpriteRenderer.flipX)
+                c_playerSpriteRenderer.flipX = false;
     }
 
     public void OnCollisionEnter2D(Collision2D p_collision)
@@ -68,16 +75,16 @@ public class InputManager : MonoBehaviour
         }
     }
 
-    private void CheckMovementInput(float p_xForce, float p_yForce)
+    private void CheckMovementInput()
     {
         if (c_onGround)
         {
-            if (p_yForce == 0)
-                c_playerRigidbody.velocity = new Vector2(p_xForce * c_horizontalSpeed, c_playerRigidbody.velocity.y);
-            else if (p_yForce < 0)
+            if (c_yForce == 0)
+                c_playerRigidbody.velocity = new Vector2(c_xForce * c_horizontalSpeed, c_playerRigidbody.velocity.y);
+            else if (c_yForce < 0)
             {
-                c_playerRigidbody.velocity = new Vector2(p_xForce * c_horizontalSpeed, c_playerRigidbody.velocity.y);
-                if ( p_xForce != 0 && Time.time > c_timeToSlide)
+                c_playerRigidbody.velocity = new Vector2(c_xForce * c_horizontalSpeed, c_playerRigidbody.velocity.y);
+                if (c_xForce != 0 && Time.time > c_timeToSlide)
                 {
                     c_playerAnimator.SetTrigger("Slide");
                     c_timeToSlide = Time.time + c_slidingCooldown;
@@ -85,13 +92,13 @@ public class InputManager : MonoBehaviour
             }
             else
             {
-                c_playerRigidbody.velocity = new Vector2(p_xForce * c_horizontalSpeed, c_playerRigidbody.velocity.y + c_verticalSpeed);
+                c_playerRigidbody.velocity = new Vector2(c_xForce * c_horizontalSpeed, c_playerRigidbody.velocity.y + c_verticalSpeed);
                 c_onGround = false;
                 c_playerAnimator.SetBool("Jumping", !c_onGround);
             }
         }
         else
-            c_playerRigidbody.velocity = new Vector2(p_xForce * c_flyingHorizontalSpeed, c_playerRigidbody.velocity.y);
+            c_playerRigidbody.velocity = new Vector2(c_xForce * c_flyingHorizontalSpeed, c_playerRigidbody.velocity.y);
     }
 
     private void CheckAttackInput()
@@ -102,4 +109,5 @@ public class InputManager : MonoBehaviour
             c_timeToAttack = Time.time + c_attackCooldown;
         }
     }
+
 }

@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{FDD1BBE5-99CF-1883-4939-56C43ED01407}</ProjectGuid>
+    <ProjectGuid>{C8FE23CA-E38F-E496-9DFB-CE9D39DC624B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AssemblyName>Assembly-CSharp</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -70,6 +70,8 @@
     <Compile Include="Assets\Code\ScrollingParallax.cs" />
     <Compile Include="Assets\Code\Weapon.cs" />
     <Compile Include="Assets\Code\WeaponManager.cs" />
+    <Compile Include="Assets\MovingPlatfom.cs" />
+    <Compile Include="Assets\SkeletonAI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\codeandweb.com\Editor\SettingsTexturePackerImporter.txt" />
