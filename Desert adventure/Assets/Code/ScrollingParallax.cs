@@ -48,8 +48,8 @@ public class ScrollingParallax : MonoBehaviour {
         for (int t_index = 0; t_index < c_leftSprites.Length; t_index++)
         {
             //move the sprites
-            c_leftSprites[t_index].transform.position += Vector3.left * Time.deltaTime * c_speeds[t_index] * p_scrollingSpeed;
-            c_rightSprites[t_index].transform.position += Vector3.left * Time.deltaTime * c_speeds[t_index] * p_scrollingSpeed;
+            c_leftSprites[t_index].transform.position += Vector3.left * c_speeds[t_index] * p_scrollingSpeed;
+            c_rightSprites[t_index].transform.position += Vector3.left * c_speeds[t_index] * p_scrollingSpeed;
 
             //scrolling to the right. Check min bound of the left sprite
             if (p_scrollingSpeed < 0)

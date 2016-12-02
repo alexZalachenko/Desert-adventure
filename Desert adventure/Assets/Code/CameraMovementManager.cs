@@ -44,6 +44,9 @@ public class CameraMovementManager : MonoBehaviour {
         c_mapMaximumX = c_rightBoundX.position.x;
         c_mapMinimumY = c_bottomBoundY.position.y;
         c_mapMaximumY = c_topBoundY.position.y;
+        transform.position = new Vector3(c_playerTransform.position.x,
+                                         c_playerTransform.position.y,
+                                         transform.position.z);
     }
 
     void Update()

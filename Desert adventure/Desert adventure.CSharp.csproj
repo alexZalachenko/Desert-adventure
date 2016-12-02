@@ -61,17 +61,29 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CheckpointManager.cs" />
+    <Compile Include="Assets\Code\Cactus.cs" />
     <Compile Include="Assets\Code\CameraMovementManager.cs" />
+    <Compile Include="Assets\Code\Checkpoint.cs" />
+    <Compile Include="Assets\Code\DeathLine.cs" />
+    <Compile Include="Assets\Code\GUI_Functions.cs" />
     <Compile Include="Assets\Code\Gun.cs" />
     <Compile Include="Assets\Code\InputManager.cs" />
     <Compile Include="Assets\Code\Knife.cs" />
+    <Compile Include="Assets\Code\MovingPlatfom.cs" />
     <Compile Include="Assets\Code\ScrollingParallax.cs" />
+    <Compile Include="Assets\Code\SkeletonAI.cs" />
     <Compile Include="Assets\Code\Weapon.cs" />
     <Compile Include="Assets\Code\WeaponManager.cs" />
-    <Compile Include="Assets\MovingPlatfom.cs" />
-    <Compile Include="Assets\SkeletonAI.cs" />
+    <Compile Include="Assets\HealthManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\codeandweb.com\Editor\SettingsTexturePackerImporter.txt" />
