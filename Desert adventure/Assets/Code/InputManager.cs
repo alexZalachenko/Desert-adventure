@@ -6,6 +6,8 @@ public class InputManager : MonoBehaviour
     [SerializeField]
     private Rigidbody2D c_playerRigidbody;
     [SerializeField]
+    private Collider2D c_playerBodyCollider;
+    [SerializeField]
     private SpriteRenderer c_playerSpriteRenderer;
     [SerializeField]
     private Animator c_playerAnimator;
@@ -39,6 +41,9 @@ public class InputManager : MonoBehaviour
     //user input
     float c_xForce;
     float c_yForce;
+
+    [SerializeField]
+    private GameObject c_IngameOptionsMenu;
 
     #if UNITY_IOS || UNITY_ANDROID || UNITY_WP8 || UNITY_IPHONE
     [SerializeField]
@@ -115,13 +120,17 @@ public class InputManager : MonoBehaviour
         //sliding
         if (c_yForce < 0 && Time.time > c_timeToSlide && c_xForce != 0)
         {
+            SoundManager.Instance.PlaySound(SoundManager.EffectsCips.Sliding);
             c_playerAnimator.SetTrigger("Slide");
             c_timeToSlide = Time.time + c_slidingCooldown;
+            c_playerBodyCollider.enabled = false;
+            Invoke("ResetBodyCollider", 1f);
         }
 
         //jumping
         if (c_yForce > 0 && c_onGround)
         {
+            SoundManager.Instance.PlaySound(SoundManager.EffectsCips.Jumping);
             c_playerRigidbody.AddForce(Vector2.up * c_verticalSpeed);
             c_onGround = false;
             c_playerAnimator.SetBool("Jumping", true);
@@ -153,7 +162,7 @@ public class InputManager : MonoBehaviour
         Collider2D t_raycastCollider;
         for (int t_position = 0; t_position < t_checkPositions.Length; t_position++)
         {
-            t_raycastCollider = Physics2D.Raycast(t_checkPositions[t_position], Vector2.down, 0.01f, c_terrainLayer).collider;
+            t_raycastCollider = Physics2D.Raycast(t_checkPositions[t_position], Vector2.down, 0.05f, c_terrainLayer).collider;
 
             if (t_raycastCollider != null)//The player is grounded
             {
@@ -236,9 +245,9 @@ public class InputManager : MonoBehaviour
                         //touch holded
                         if (c_holdingTime > c_timeUntilHold)
                         {
-                            //abrir menu opciones ingame
-                            Debug.Log("holding");
                             c_holdingTime = 0;
+                            Time.timeScale = 0;
+                            c_IngameOptionsMenu.SetActive(true);
                         }
                         else
                             c_holdingTime += t_touches[t_index].deltaTime;
@@ -252,5 +261,10 @@ public class InputManager : MonoBehaviour
     public void ReceiveForce(Vector2 p_forceToAdd)
     {
         c_playerRigidbody.AddForce(p_forceToAdd);
+    }
+
+    public void ResetBodyCollider()
+    {
+        c_playerBodyCollider.enabled = true;
     }
 }

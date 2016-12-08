@@ -3,11 +3,11 @@
 public class WeaponManager : MonoBehaviour {
 
     [SerializeField]
-    private BoxCollider2D c_playerBoxCollider;
-    [SerializeField]
     private SpriteRenderer c_playerSpriteRenderer;
     [SerializeField]
-    public float c_meleeRange;
+    private LayerMask c_attackMask;
+
+    private Vector3 c_raycastOffset;
 
     Weapon c_rangedWeapon;
     Weapon c_meleeWeapon;
@@ -16,6 +16,7 @@ public class WeaponManager : MonoBehaviour {
     {
         c_rangedWeapon = new Gun(gameObject.GetComponent<Animator>());
         c_meleeWeapon = new Knife(gameObject.GetComponent<Animator>());
+        c_raycastOffset = new Vector3(0, 0.25f, 0);
     }
 
     public void Attack()
@@ -26,15 +27,17 @@ public class WeaponManager : MonoBehaviour {
         else
             t_raycastDirection = Vector2.right;
 
-        //disable the player's collider so the raycast doesn't hit it
-        c_playerBoxCollider.enabled = false;
         //we will raycast to decide if shoot or better melee
-        RaycastHit2D t_raycastHit = Physics2D.Raycast(transform.position, t_raycastDirection, c_meleeRange);
-        c_playerBoxCollider.enabled = true;
+        RaycastHit2D t_raycastHit = Physics2D.Raycast(transform.position + c_raycastOffset, t_raycastDirection, c_rangedWeapon.Range, c_attackMask);
         if(t_raycastHit.collider == null)
-            c_rangedWeapon.Attack(Vector2.right, t_raycastHit.collider);
+            c_rangedWeapon.Attack(t_raycastDirection, t_raycastHit.collider);
         else
-            c_meleeWeapon.Attack(Vector2.left, t_raycastHit.collider);
+        {
+            if (t_raycastHit.distance < c_meleeWeapon.Range)
+                c_meleeWeapon.Attack(t_raycastDirection, t_raycastHit.collider);
+            else
+                c_rangedWeapon.Attack(t_raycastDirection, t_raycastHit.collider);
+        }
     }
 
     private void EquipWeapon(Weapon p_weaponToEquip)
